@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+
+   .item{
+        width: 200px;
+        height: 200px;
+        margin-top: 10px;
+        border: 1px solid black;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .btn{
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 25px;
+        background-color: blue;
+    }
+    .title{
+        text-align: center;
+        border-radius: 1rem;
+        border: 1px solid black;
+        padding: 15px;
+        color: white;
+        background-color: blueviolet;
+        margin-top: 15px;
+    }
+</style>
+<body>
+
+    <div class="container">
+        {%  for form in forms %}
+        <div class="title">{{ form.title }}</div>
+        <a href="{% url 'detail' form.id %}">
+        <div class="item">
+        
+            {{ form.text }}
+        
+        </div>
+    </a>
+    
+        {% endfor %}
+        <a href="{% url 'create' %}"><div class="btn">Yeni Blog</div></a>
+       
+
+
+
+
+    </div>
+    
+</body>
+</html>
